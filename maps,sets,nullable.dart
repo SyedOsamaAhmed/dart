@@ -19,7 +19,7 @@ void main() {
 
   //?. conditionally invoke a method or property
 
-  test(null, "Foo", null, ['ak47']);
+  //test(null, "Foo", null, ['ak47']);
 }
 
 void test(String? firstName, String? middleName, String? lastName,
