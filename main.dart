@@ -1,18 +1,17 @@
-class Person {
-  void run() {
-    print("Running!");
+class LivingThings {
+  void breathing() {
+    print('Iam breathing');
   }
 
-  void breath() {
-    print("Breathing!");
+  void move() {
+    print('Iam moving');
   }
 }
 
-//classes,enums and identities are in pascal case except variables and constants.
+class Cat extends LivingThings {}
+
 void main() {
-  //class instantiation
-  final person = Person();
-  person.run();
-  person.breath();
-  //Objects: instance of classes
+  final fluffers = Cat();
+  fluffers.breathing();
+  fluffers.move();
 }
