@@ -1,17 +1,13 @@
-class LivingThings {
-  void breathing() {
-    print('Iam breathing');
-  }
-
-  void move() {
-    print('Iam moving');
-  }
+class Cat {
+  String name;
+  Cat(this.name);
+// covariant: forget about what is written about operator in Object class and assign custom class instead.
+  @override
+  bool operator ==(covariant Cat other) => other.name == name;
 }
 
-class Cat extends LivingThings {}
-
 void main() {
-  final fluffers = Cat();
-  fluffers.breathing();
-  fluffers.move();
+  final cat1 = Cat('Foo');
+  final cat2 = Cat('Foo');
+  print(cat1 == cat2);
 }
