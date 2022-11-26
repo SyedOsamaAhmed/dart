@@ -1,13 +1,31 @@
 class Cat {
   String name;
   Cat(this.name);
-// covariant: forget about what is written about operator in Object class and assign custom class instead.
-  @override
-  bool operator ==(covariant Cat other) => other.name == name;
+}
+
+//extension:add functionality to existing class:
+
+class Person {
+  final String firstName;
+  final String lastName;
+
+  Person(this.firstName, this.lastName);
+}
+
+extension FullName on Person {
+  //getters:this can be only read from
+  String get fullName => '$firstName $lastName';
+}
+
+extension Run on Cat {
+  void run() {
+    print('$name is running!');
+  }
 }
 
 void main() {
-  final cat1 = Cat('Foo');
-  final cat2 = Cat('Foo');
-  print(cat1 == cat2);
+  final cat = Cat('Fluffers');
+  final person = Person('Osama', 'Ahmed');
+  cat.run();
+  print(person.fullName);
 }
