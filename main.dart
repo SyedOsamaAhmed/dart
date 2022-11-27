@@ -1,19 +1,18 @@
-//Streams: controls asynchoronous data continuously.
+//Generative functions: return iteratablrs. can be sync* and async*.yield can be used in generative function only.
 
-Stream<String> getName() {
-  return Stream.value("Reaper");
+Iterable<int> getThreeVal() sync* {
+  yield 1;
+  yield 2;
+  yield 3;
 }
 
-Stream<String> getName_() {
-  return Stream.periodic(const Duration(seconds: 1), (value) => "reaper");
-}
-
-void test() async {
-  await for (final value in getName_()) {
+void test() {
+  //Reading value from generative functions:
+  for (final value in getThreeVal()) {
     print(value);
   }
 
-  // print('Finished working with stream');
+  print(getThreeVal());
 }
 
 void main() {
